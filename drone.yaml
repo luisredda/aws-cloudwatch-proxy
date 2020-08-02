@@ -15,4 +15,3 @@ steps:
       from_secret: p_docker
     repo: luisredda/cloudwatch-proxy
     auto_tag: true
-    auto_tag_suffix: drone
