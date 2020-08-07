@@ -16,7 +16,7 @@ Example:
 (HTTP Header) x-metrics-region: us-east-1
  
 Payload (the same standard from the AWS MetricStat object):
-
+```json
 {
             "Id": "m1",
             "MetricStat": {
@@ -34,6 +34,7 @@ Payload (the same standard from the AWS MetricStat object):
                 "Stat": "Average"
             }
         }
+  ```
         
  *Fetch metrics with multiple dimensions:*
  
@@ -42,6 +43,7 @@ Payload (the same standard from the AWS MetricStat object):
  
  Payload (the same standard from the AWS MetricStat object):
  
+ ```json
  {
       "Id": "m1",
       "MetricStat": {
@@ -63,20 +65,22 @@ Payload (the same standard from the AWS MetricStat object):
         "Stat": "Average"
       }
     }
-    
+```    
           
  *Fetch Logs from a specific EKS Pod:*
- 
+
 (POST)http://127.0.0.1:5000/getLogs?start=${start_time_epoch_seconds}&end=${end_time_epoch_seconds}
 (HTTP Header) x-metrics-region: us-east-1
 
 Payload (The query field represents a CloudWatch log insights query): 
 
+```json
  {
   "customLogs": {
     "query": "fields @timestamp, msg, kubernetes.pod_name | filter kubernetes.pod_name = '${host}'",
     "log_group": "/eks/cluster-name/containers"
   }
 }
+```
  
     
